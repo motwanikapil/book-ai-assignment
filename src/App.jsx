@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react'
 import { Sun, Moon } from 'react-feather'
 
 function App() {
-  const [theme, setTheme] = useState(localStorage.getItem('theme') || 'light')
+  const [theme, setTheme] = useState('light')
 
   useEffect(() => {
     if (
