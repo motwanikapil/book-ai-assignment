@@ -2,24 +2,14 @@ import React, { useState, useEffect } from 'react'
 import { Sun, Moon } from 'react-feather'
 
 function App() {
-  const [theme, setTheme] = useState('light')
+  const [theme, setTheme] = useState(true)
 
   useEffect(() => {
-    if (
-      theme === 'dark' ||
-      (!('theme' in localStorage) &&
-        window.matchMedia('(prefers-color-scheme: dark)').matches)
-    ) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
+    document.documentElement.classList.toggle('dark')
   }, [theme])
 
   const toggleTheme = () => {
-    setTheme(theme === 'dark' ? 'light' : 'dark')
+    setTheme(!theme)
   }
 
   return (
